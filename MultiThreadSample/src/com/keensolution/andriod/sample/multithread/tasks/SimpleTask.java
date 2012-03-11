@@ -14,19 +14,27 @@
    limitations under the License.
  */
 
-package com.keensolution.andriod.sample.multithread;
+package com.keensolution.andriod.sample.multithread.tasks;
 
 import android.os.Handler;
 import android.os.Message;
 
 public class SimpleTask implements Runnable {
-	Handler handler;
-	int i=0;
-	volatile Thread task;
-	volatile boolean threadSuspended=false;
+	private Handler handler;
+	private int i=0;
+	private volatile Thread task;
+	private volatile boolean threadSuspended=false;
+	private int id;
+	private String name;
 	
-	public SimpleTask(Handler handler){
+	public SimpleTask(Handler handler, int id, String name){
 		this.handler = handler;
+		this.id = id;
+		this.name = name;
+	}
+	
+	public String getName(){
+		return this.name;
 	}
 	
 	/**
@@ -80,13 +88,22 @@ public class SimpleTask implements Runnable {
 	@Override
 	public void run() {
 		Thread thisThread = Thread.currentThread();
-		//the thread keep running until the task is set to "null"
+		task = thisThread;
+		//the thread keep running until the task is set to "null" or the task is finish
 		while(task == thisThread){
 			try {
 				i++;
-				Message msg = handler.obtainMessage(1, new Integer(i));
+				if(i>100){
+					task = null;
+					break;
+				}
+				TaskProgressMessage taskMsg = new TaskProgressMessage();
+				taskMsg.setId(this.id);
+				taskMsg.setName(this.name);
+				taskMsg.setProgress(i);
+				Message msg = handler.obtainMessage(1, taskMsg);
 				handler.sendMessage(msg);
-                Thread.sleep(500);
+                Thread.sleep(250);
 
                 //This is required by the language, and ensures that wait and notify 
                 //are properly serialized. In practical terms, this eliminates 
@@ -108,4 +125,5 @@ public class SimpleTask implements Runnable {
 		}
 	}
 
+	
 }

@@ -23,19 +23,33 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import com.keensolution.andriod.sample.multithread.threadpool.ThreadPoolActivity;
+
 public class MultiThreadSampleActivity extends Activity {
     /** Called when the activity is first created. */
 	Button simpleMTButt;
+	Button threadPoolButt;
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         simpleMTButt = (Button) findViewById(R.id.button1);
+        threadPoolButt = (Button) findViewById(R.id.button2);
         
         simpleMTButt.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(MultiThreadSampleActivity.this, SimpleMultiThreadActivity.class);
+				startActivity(intent);
+			}
+		});
+        
+        threadPoolButt.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(MultiThreadSampleActivity.this, ThreadPoolActivity.class);
 				startActivity(intent);
 			}
 		});

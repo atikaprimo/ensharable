@@ -16,6 +16,9 @@
 
 package com.keensolution.andriod.sample.multithread;
 
+import com.keensolution.andriod.sample.multithread.tasks.SimpleTask;
+import com.keensolution.andriod.sample.multithread.tasks.TaskProgressMessage;
+
 import android.R.anim;
 import android.app.Activity;
 import android.os.Bundle;
@@ -38,12 +41,13 @@ public class SimpleMultiThreadActivity extends Activity {
 		
 		@Override
 		public void handleMessage(Message e){
-			Integer returnValue = (Integer)e.obj;
-			resultText.setText("Thread return value "+returnValue.toString());
-			progressBar.setProgress(returnValue.intValue() % 100);
+			TaskProgressMessage msg = (TaskProgressMessage)e.obj;
+			resultText.setText("Thread return value "+msg.getProgress());
+			progressBar.setProgress(msg.getProgress());
 		}
 	};
-	SimpleTask backgroundThread = new SimpleTask(handler);
+	
+	SimpleTask backgroundThread = new SimpleTask(handler, 1, "Test 1");
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState){
