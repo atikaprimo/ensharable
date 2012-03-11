@@ -4,5 +4,6 @@
     <string name="hello">Hello World, MultiThreadSampleActivity!</string>
     <string name="app_name">MultiThreadSample</string>
     <string name="simple_multi_thread_butt">Simple Multi-threading</string>
+    <string name="thread_pool_butt">Thread Pool</string>
 
 </resources>

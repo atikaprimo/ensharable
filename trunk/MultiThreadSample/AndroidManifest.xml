@@ -36,6 +36,7 @@
         </activity>
         <activity android:name="SimpleMultiThreadActivity"
             android:screenOrientation="portrait"></activity>
+        <activity android:name=".threadpool.ThreadPoolActivity"></activity>
     </application>
 
 </manifest>
