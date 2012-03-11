@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, MultiThreadSampleActivity!</string>
+    <string name="app_name">MultiThreadSample</string>
+    <string name="simple_multi_thread_butt">Simple Multi-threading</string>
+    <string name="thread_pool_butt">Thread Pool</string>
+
+</resources>
