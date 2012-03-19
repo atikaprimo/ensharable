@@ -23,12 +23,14 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import com.keensolution.andriod.sample.multithread.futuretask.FutureTaskActivity;
 import com.keensolution.andriod.sample.multithread.threadpool.ThreadPoolActivity;
 
 public class MultiThreadSampleActivity extends Activity {
     /** Called when the activity is first created. */
 	Button simpleMTButt;
 	Button threadPoolButt;
+	Button futureTaskButt;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class MultiThreadSampleActivity extends Activity {
         setContentView(R.layout.main);
         simpleMTButt = (Button) findViewById(R.id.button1);
         threadPoolButt = (Button) findViewById(R.id.button2);
+        futureTaskButt = (Button) findViewById(R.id.button3);
         
         simpleMTButt.setOnClickListener(new OnClickListener() {
 			@Override
@@ -50,6 +53,15 @@ public class MultiThreadSampleActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(MultiThreadSampleActivity.this, ThreadPoolActivity.class);
+				startActivity(intent);
+			}
+		});
+        
+        futureTaskButt.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(MultiThreadSampleActivity.this, FutureTaskActivity.class);
 				startActivity(intent);
 			}
 		});
