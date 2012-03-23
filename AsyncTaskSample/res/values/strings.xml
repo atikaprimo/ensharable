@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, MultiThreadSampleActivity!</string>
+    <string name="app_name">MultiThreadSample</string>
+    <string name="simple_multi_thread_butt">Simple Multi-threading</string>
+    <string name="thread_pool_butt">Thread Pool</string>
+    <string name="future_task_butt">Future Task</string>
+    <string name="image_download_butt">Download Image</string>
+    <string name="asynctask_butt">AsyncTask</string>
+    <string name="convert_grayscale_butt">Convert to grayscale</string>
+
+</resources>
