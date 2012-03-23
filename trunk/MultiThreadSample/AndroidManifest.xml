@@ -39,6 +39,7 @@
             android:screenOrientation="portrait"></activity>
         <activity android:name=".threadpool.ThreadPoolActivity"></activity>
         <activity android:name=".futuretask.FutureTaskActivity"></activity>
+        <activity android:name=".asynctask.AsyncTaskActivity"></activity>
     </application>
 
 </manifest>

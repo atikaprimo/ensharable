@@ -23,6 +23,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import com.keensolution.andriod.sample.multithread.asynctask.AsyncTaskActivity;
 import com.keensolution.andriod.sample.multithread.futuretask.FutureTaskActivity;
 import com.keensolution.andriod.sample.multithread.threadpool.ThreadPoolActivity;
 
@@ -31,6 +32,7 @@ public class MultiThreadSampleActivity extends Activity {
 	Button simpleMTButt;
 	Button threadPoolButt;
 	Button futureTaskButt;
+	Button asyncTaskButt;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,8 @@ public class MultiThreadSampleActivity extends Activity {
         simpleMTButt = (Button) findViewById(R.id.button1);
         threadPoolButt = (Button) findViewById(R.id.button2);
         futureTaskButt = (Button) findViewById(R.id.button3);
+        asyncTaskButt = (Button) findViewById(R.id.button4);
+        
         
         simpleMTButt.setOnClickListener(new OnClickListener() {
 			@Override
@@ -62,6 +66,15 @@ public class MultiThreadSampleActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(MultiThreadSampleActivity.this, FutureTaskActivity.class);
+				startActivity(intent);
+			}
+		});
+        
+        asyncTaskButt.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(MultiThreadSampleActivity.this, AsyncTaskActivity.class);
 				startActivity(intent);
 			}
 		});
